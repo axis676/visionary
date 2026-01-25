@@ -11,21 +11,22 @@
 
 ### 步骤 1: 提交并推送新文件到 GitHub
 
-在项目目录下执行以下命令：
+在项目根目录下执行以下命令：
 
 ```bash
-# 进入项目目录
-cd c:\Users\ovov9\Desktop\visionary\visionary-demo
+# 进入项目根目录
+cd c:\Users\ovov9\Desktop\visionary
 
 # 添加新文件
 git add .github/workflows/deploy.yml
-git add vite.config.js
+git add visionary-demo/vite.config.js
+git add DEPLOYMENT_SOP.md
 
 # 提交更改
-git commit -m "Add GitHub Actions deployment workflow"
+git commit -m "Fix GitHub Actions deployment workflow path"
 
 # 推送到 GitHub
-git push origin main
+git push origin master
 ```
 
 ### 步骤 2: 在 GitHub 上启用 GitHub Pages
@@ -46,7 +47,7 @@ git push origin main
 ### 步骤 3: 触发部署
 
 部署会在以下情况自动触发：
-- ✅ 每次推送代码到 `main` 分支
+- ✅ 每次推送代码到 `master` 分支
 - ✅ 手动触发（在 Actions 页面）
 
 **首次部署：**
@@ -58,7 +59,7 @@ git push origin main
 1. 访问：`https://github.com/axis676/visionary/actions`
 2. 点击左侧的 "Deploy to GitHub Pages"
 3. 点击右侧的 "Run workflow" 按钮
-4. 选择分支（通常是 main）
+4. 选择分支（通常是 master）
 5. 点击绿色的 "Run workflow" 按钮
 
 ### 步骤 4: 访问你的网站
@@ -116,7 +117,7 @@ git add .
 git commit -m "你的更新说明"
 
 # 2. 推送到 GitHub
-git push origin main
+git push origin master
 
 # 3. 等待自动部署（2-3分钟）
 # 4. 访问 https://axis676.github.io/visionary/ 查看更新
@@ -130,6 +131,28 @@ git push origin main
 - Pages 设置页面显示 "Your site is live at..."
 - 可以通过 URL 访问你的网站
 - 所有样式和功能正常工作
+
+---
+
+## 📂 项目结构说明
+
+```
+visionary/                          # Git 仓库根目录
+├── .github/
+│   └── workflows/
+│       └── deploy.yml              # GitHub Actions 配置
+├── visionary-demo/                 # 实际项目代码
+│   ├── src/
+│   ├── package.json
+│   ├── vite.config.js
+│   └── ...
+└── DEPLOYMENT_SOP.md               # 本文档
+```
+
+⚠️ **重要提示：** 
+- `.github` 文件夹必须在仓库根目录
+- 项目代码在 `visionary-demo` 子目录
+- Actions 会自动进入 `visionary-demo` 目录执行构建
 
 ---
 
