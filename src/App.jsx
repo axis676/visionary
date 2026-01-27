@@ -129,7 +129,7 @@ const HeroSection = () => {
         <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-blue-200/30 to-cyan-100/30 blur-[80px]" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-6 pt-24 md:pt-0 relative z-10 grid md:grid-cols-2 gap-12 items-center">
         {/* Text Content */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -137,7 +137,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="text-left"
         >
-          <div className="inline-block px-3 py-1 mb-4 rounded-full border border-slate-300 bg-white/50 backdrop-blur-sm text-sm font-medium text-slate-600">
+          <div className="inline-block px-3 py-1 mt-4 mb-4 rounded-full border border-slate-300 bg-white/50 backdrop-blur-sm text-sm font-medium text-slate-600">
              The Future of Vision
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-tight text-slate-900 mb-6 font-heading">
