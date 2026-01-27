@@ -75,13 +75,13 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4 glass-panel-dark bg-slate-900/80' : 'py-6 bg-transparent'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center gap-2 z-50">
-          <div className="w-8 h-8 rounded-full border-2 border-cyan-400 flex items-center justify-center">
-            <div className="w-4 h-2 border-b-2 border-cyan-400 rounded-full" />
-          </div>
-          <span className={`font-heading font-bold text-xl tracking-wider ${isScrolled ? 'text-white' : 'text-slate-900'}`}>
-            VISIONARY<span className="text-cyan-500">.</span>
-          </span>
+        <div className="flex items-center gap-3 z-50">
+          <img 
+            src={`${import.meta.env.BASE_URL}logo.svg`}
+            alt="Simulacra Logo" 
+            className={`h-20 w-auto transition-all duration-300 ${!isScrolled ? 'brightness-0' : ''}`}
+            style={{ filter: !isScrolled ? 'brightness(0) saturate(100%)' : 'none' }}
+          />
         </div>
 
         {/* Desktop Menu */}
@@ -523,7 +523,7 @@ const Footer = () => {
 
         <div className="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
             <div className="mb-4 md:mb-0">
-                &copy; 2024 Visionary Tech 擬視科技. All rights reserved.
+                &copy; 2024 Simulacra Tech 擬視科技. All rights reserved.
             </div>
             <div className="flex gap-8">
                 <a href="#" className="hover:text-white transition-colors">Privacy</a>
