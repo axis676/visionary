@@ -72,14 +72,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4 glass-panel-dark bg-slate-900/80' : 'py-6 bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-3 md:py-4 glass-panel-dark bg-slate-900/80' : 'py-4 md:py-6 bg-transparent'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-3 z-50">
           <img 
             src={`${import.meta.env.BASE_URL}logo.svg`}
             alt="Simulacra Logo" 
-            className={`h-20 w-auto transition-all duration-300 ${!isScrolled ? 'brightness-0' : ''}`}
+            className={`h-10 md:h-16 lg:h-20 w-auto transition-all duration-300 ${!isScrolled ? 'brightness-0' : ''}`}
             style={{ filter: !isScrolled ? 'brightness(0) saturate(100%)' : 'none' }}
           />
         </div>
