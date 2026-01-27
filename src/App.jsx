@@ -523,7 +523,7 @@ const Footer = () => {
 
         <div className="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
             <div className="mb-4 md:mb-0">
-                &copy; 2024 Simulacra Tech 擬視科技. All rights reserved.
+                &copy; 2024 Simulacra Technologies 擬視科技股份有限公司. All rights reserved.
             </div>
             <div className="flex gap-8">
                 <a href="#" className="hover:text-white transition-colors">Privacy</a>
