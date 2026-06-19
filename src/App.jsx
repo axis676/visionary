@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
-import { ChevronRight, Eye, Layers, Zap, ArrowRight, X, Check, Activity, Shield } from 'lucide-react';
+import { ChevronRight, Eye, Layers, Zap, ArrowRight, X, Check, Activity, Shield, Mail } from 'lucide-react';
 
 // --- Global Styles & Fonts ---
 const GlobalStyles = () => (
@@ -82,6 +82,19 @@ const Navbar = () => {
             style={{ filter: !isScrolled ? 'brightness(0) saturate(100%)' : 'none' }}
           />
         </div>
+
+        <a
+          href="mailto:service@simulacratech.com"
+          aria-label="寄信給擬視科技"
+          title="service@simulacratech.com"
+          className={`z-50 flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-300 ${
+            isScrolled
+              ? 'border-white/15 bg-white/10 text-white hover:border-cyan-300/70 hover:text-cyan-200'
+              : 'border-slate-300 bg-white/50 text-slate-800 hover:border-cyan-400 hover:text-cyan-600'
+          }`}
+        >
+          <Mail size={20} strokeWidth={2} />
+        </a>
 
       </div>
     </nav>
@@ -215,6 +228,9 @@ const InnovationSection = () => {
   const y2 = useTransform(scrollYProgress, [0, 0.5], [-100, 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
   const scale = useTransform(scrollYProgress, [0.3, 0.5], [0.8, 1]);
+  const blurredEyeOpacity = useTransform(scrollYProgress, [0, 0.48, 0.58], [1, 1, 0]);
+  const clearEyeOpacity = useTransform(scrollYProgress, [0.42, 0.58], [0, 1]);
+  const clearEyeScale = useTransform(scrollYProgress, [0.42, 0.58], [0.96, 1]);
 
   return (
     <section id="technology" className="py-32 bg-[#F5F5F4] relative overflow-hidden" ref={targetRef}>
@@ -231,10 +247,26 @@ const InnovationSection = () => {
 
         {/* Animation Container */}
         <div className="relative h-[600px] w-full max-w-4xl mx-auto flex items-center justify-center">
+           {/* Vision Target */}
+           <div className="absolute z-0 flex items-center justify-center">
+              <motion.div
+                style={{ opacity: blurredEyeOpacity }}
+                className="absolute flex h-56 w-56 md:h-72 md:w-72 items-center justify-center rounded-full border border-slate-300/50 bg-slate-200/30 blur-[6px]"
+              >
+                <Eye size={118} className="text-slate-400/80" strokeWidth={1.5} />
+              </motion.div>
+              <motion.div
+                style={{ opacity: clearEyeOpacity, scale: clearEyeScale }}
+                className="absolute flex h-56 w-56 md:h-72 md:w-72 items-center justify-center rounded-full border border-cyan-300/60 bg-white/30 shadow-[0_0_45px_rgba(34,211,238,0.18)]"
+              >
+                <Eye size={118} className="text-slate-800 drop-shadow-[0_0_10px_rgba(34,211,238,0.35)]" strokeWidth={1.8} />
+              </motion.div>
+           </div>
+
            {/* Layer 1: Prescription Lens (Bottom) */}
            <motion.div 
              style={{ y: y1, opacity }}
-             className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-[30%] border-4 border-slate-300 bg-white/40 backdrop-blur-md flex items-center justify-center z-10"
+             className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-[30%] border-4 border-slate-300 bg-white/35 flex items-center justify-center z-10"
            >
               <span className="text-slate-400 font-heading text-xl translate-y-20">視力矯正層</span>
            </motion.div>
@@ -242,7 +274,7 @@ const InnovationSection = () => {
            {/* Layer 2: Waveguide (Top) */}
            <motion.div 
              style={{ y: y2, opacity }}
-             className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-[30%] border-4 border-cyan-400/50 bg-cyan-50/20 backdrop-blur-md flex items-center justify-center z-20 shadow-lg shadow-cyan-200/50"
+             className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-[30%] border-4 border-cyan-400/50 bg-cyan-50/20 flex items-center justify-center z-20 shadow-lg shadow-cyan-200/50"
            >
               <span className="text-cyan-600 font-heading text-xl -translate-y-20">AR 光波導層</span>
            </motion.div>
@@ -288,27 +320,17 @@ const InnovationSection = () => {
   );
 };
 
-const LifestyleSection = () => {
-  return (
-    <section id="lifestyle" className="py-24 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-            <div>
-                <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 mb-4">
-                    隱形於生活，<br/>顯形於視界。
-                </h2>
-                <p className="text-slate-500 max-w-md">我們相信最好的科技是不被察覺的。全天候舒適配戴，就像您原本的眼鏡一樣自然。</p>
-            </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const SpecsSection = () => {
   return (
     <section id="specs" className="py-24 bg-slate-900 text-white border-t border-slate-800">
       <div className="container mx-auto px-6 max-w-5xl">
+        <div className="mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold font-heading text-white mb-4">
+                隱形於生活，<br/>顯形於視界。
+            </h2>
+            <p className="text-slate-400 max-w-md">我們相信最好的科技是不被察覺的。全天候舒適配戴，就像您原本的眼鏡一樣自然。</p>
+        </div>
+
         <div className="max-w-2xl mx-auto">
             <div>
                 <h2 className="text-3xl font-heading font-bold mb-6 flex items-center gap-3">
@@ -320,11 +342,9 @@ const SpecsSection = () => {
                 
                 <div className="space-y-6">
                     {[
-                        { label: "視場角 (FOV)", value: "52° Diagonal" },
-                        { label: "近視矯正範圍", value: "0.00D to -8.00D" },
-                        { label: "散光矯正範圍", value: "0.00D to -2.00D" },
-                        { label: "鏡片透光率", value: "> 85%" },
-                        { label: "顯示亮度", value: "2000 nits" },
+                        { label: "近視矯正範圍", value: "0.00D to -10.00D" },
+                        { label: "散光矯正範圍", value: "0.00D to -6.00D" },
+                        { label: "鏡片透光率", value: "> 95%" },
                     ].map((spec, i) => (
                         <div key={i} className="flex justify-between items-center py-4 border-b border-slate-800 hover:border-cyan-500/50 transition-colors">
                             <span className="text-slate-400">{spec.label}</span>
@@ -370,10 +390,9 @@ const SpecsSection = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-950 text-white pt-24 pb-12 relative overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-slate-900 to-slate-950 z-0" />
-      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-cyan-900/20 blur-[100px] rounded-full z-0" />
+    <footer className="bg-[#F5F5F4] text-slate-900 pt-24 pb-12 relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[400px] rounded-full bg-gradient-to-br from-cyan-200/30 to-purple-200/30 blur-[100px]" />
 
       <div className="container mx-auto px-6 relative z-10 text-center">
         <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8 holographic-text">
@@ -395,7 +414,6 @@ const App = () => {
       <HeroSection />
       <ProblemSection />
       <InnovationSection />
-      <LifestyleSection />
       <SpecsSection />
       <Footer />
     </div>
