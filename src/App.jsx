@@ -138,17 +138,9 @@ const HeroSection = () => {
             <span>無需犧牲視力。</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-lg leading-relaxed">
-            首創度數鏡片與平面光波導一體化技術。讓每一雙獨特的眼睛，都能舒適地探索虛實世界。
+            首創度數鏡片與平面光波導一體化技術。<br />
+            讓每一雙獨特的眼睛，都能舒適地探索虛實世界。
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button className="px-8 py-4 rounded-full bg-slate-900 text-white font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-cyan-900/10 flex items-center justify-center gap-2">
-              探索技術 <ArrowRight size={20} />
-            </button>
-            <button className="px-8 py-4 rounded-full border border-slate-300 bg-white/50 hover:bg-white text-slate-700 font-medium text-lg transition-all flex items-center justify-center gap-2">
-              觀看影片 <div className="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center">▶</div>
-            </button>
-          </div>
         </motion.div>
 
       </div>
@@ -180,7 +172,7 @@ const ProblemSection = () => {
         >
           <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6">為什麼 AR 眼鏡總是難以適應？</h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            每個使用者的眼睛都是獨一無二的，而主流AR眼鏡無法客製作度數鏡片給予使用都配戴。這種「幾何衝突」，讓大部分屈光不正族群被拒於門外。
+            每個使用者的眼睛都是獨一無二的，而主流AR眼鏡無法客製化度數鏡片給予使用者配戴。這種「幾何衝突」，讓屈光不正族群被拒於門外。
           </p>
         </motion.div>
 
