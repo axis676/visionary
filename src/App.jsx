@@ -91,13 +91,6 @@ const Navbar = () => {
           <a href="#specs" className="hover:text-cyan-400 transition-colors">專業數據</a>
         </div>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
-          <button className="px-6 py-2 rounded-full bg-slate-900 text-white font-medium hover:bg-slate-800 transition-all border border-slate-700 hover:border-cyan-400 shadow-lg hover:shadow-cyan-500/20">
-            預約體驗
-          </button>
-        </div>
-
         {/* Mobile Menu Toggle */}
         <button className="md:hidden z-50 text-cyan-500" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -129,7 +122,7 @@ const HeroSection = () => {
         <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-blue-200/30 to-cyan-100/30 blur-[80px]" />
       </div>
 
-      <div className="container mx-auto px-6 pt-24 md:pt-0 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-6 pt-24 md:pt-0 relative z-10 grid gap-12 items-center">
         {/* Text Content */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -140,12 +133,12 @@ const HeroSection = () => {
           <div className="inline-block px-3 py-1 mt-4 mb-4 rounded-full border border-slate-300 bg-white/50 backdrop-blur-sm text-sm font-medium text-slate-600">
              The Future of Vision
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight text-slate-900 mb-6 font-heading">
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight text-slate-900 mb-6 font-['Noto_Sans_TC']">
             看見未來，<br />
-            <span className="holographic-text">無需犧牲視力。</span>
+            <span>無需犧牲視力。</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-lg leading-relaxed">
-            首創曲面光波導與視力矯正一體化技術。讓每一雙獨特的眼睛，都能舒適地探索虛實世界。
+            首創度數鏡片與平面光波導一體化技術。讓每一雙獨特的眼睛，都能舒適地探索虛實世界。
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
@@ -158,46 +151,6 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Visual Element (Abstract Glasses) */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative h-[400px] md:h-[600px] flex items-center justify-center"
-        >
-          {/* Floating Glass Element */}
-          <motion.div 
-            animate={{ y: [0, -20, 0], rotateX: [0, 5, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-full max-w-md aspect-[4/3]"
-          >
-             {/* Creating a CSS-only Abstract Glasses Representation */}
-             <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-white/10 backdrop-filter backdrop-blur-sm border border-white/40 rounded-[3rem] shadow-2xl z-20 overflow-hidden group">
-                {/* Internal Reflections */}
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ transform: 'skewX(-20deg) translateX(-150%)' }} />
-                
-                {/* AR Content Simulation */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 flex flex-col justify-center items-center">
-                    <div className="w-16 h-16 rounded-full border-2 border-cyan-400/50 mb-4 animate-pulse flex items-center justify-center">
-                        <div className="w-10 h-10 rounded-full bg-cyan-400/20" />
-                    </div>
-                    <div className="h-2 w-32 bg-slate-400/20 rounded mb-2" />
-                    <div className="h-2 w-24 bg-slate-400/20 rounded" />
-                </div>
-
-                <div className="absolute bottom-6 left-8 text-slate-500 text-xs font-mono">
-                    FOV: 52° <br />
-                    CORRECTION: -4.25D
-                </div>
-             </div>
-
-             {/* Back Layer (Depth) */}
-             <div className="absolute top-4 left-4 w-full h-full border-2 border-slate-300/30 rounded-[3rem] z-10" />
-             
-             {/* Prism Effect Light */}
-             <div className="absolute -top-10 -right-10 w-32 h-32 bg-cyan-400/30 blur-[40px] z-30 mix-blend-screen pointer-events-none" />
-          </motion.div>
-        </motion.div>
       </div>
       
       {/* Scroll Indicator */}
@@ -227,7 +180,7 @@ const ProblemSection = () => {
         >
           <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6">為什麼 AR 眼鏡總是難以適應？</h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            您的眼睛是獨一無二的曲面，但主流 AR 裝置卻是平面的。這種「幾何衝突」，讓 60% 以上的視力矯正族群被拒於門外。
+            每個使用者的眼睛都是獨一無二的，而主流AR眼鏡無法客製作度數鏡片給予使用都配戴。這種「幾何衝突」，讓大部分屈光不正族群被拒於門外。
           </p>
         </motion.div>
 
@@ -236,12 +189,10 @@ const ProblemSection = () => {
             <div className="relative group">
                 <div className="absolute inset-0 bg-red-500/5 blur-[60px] rounded-full" />
                 <div className="relative bg-slate-800/50 border border-slate-700 rounded-3xl p-8 h-[400px] flex flex-col justify-between overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                         <h3 className="text-4xl font-bold text-white/10 select-none">DISCOMFORT</h3>
-                    </div>
-                    
                     {/* Visualizing Blur */}
                     <div className="relative z-10 flex-1 flex items-center justify-center">
+                        <div className="absolute w-56 h-56 md:w-64 md:h-64 rounded-full border border-slate-400/10 bg-slate-300/5 blur-[6px]" />
+                        <div className="absolute w-40 h-40 md:w-48 md:h-48 rounded-full border border-slate-500/10 blur-[12px]" />
                         <p className="text-2xl font-serif text-slate-300 text-center blur-[2px] group-hover:blur-[4px] transition-all duration-500 leading-relaxed">
                             這是一個<br/>無法對焦的<br/>數位世界
                         </p>
@@ -252,7 +203,7 @@ const ProblemSection = () => {
                             <X size={16} /> 傳統平面波導
                         </div>
                         <p className="text-slate-400 text-sm">
-                            無法貼合眼球曲度，造成邊緣成像模糊、暈眩，且難以疊加近視鏡片。
+                            無法符合眼球屈光，造成邊緣成像模糊、暈眩。
                         </p>
                     </div>
                 </div>
@@ -264,7 +215,7 @@ const ProblemSection = () => {
                 <div className="relative bg-slate-800/50 border border-cyan-500/30 rounded-3xl p-8 h-[400px] flex flex-col justify-between overflow-hidden shadow-2xl shadow-cyan-900/20">
                     {/* Visualizing Clarity */}
                     <div className="relative z-10 flex-1 flex items-center justify-center">
-                        <div className="absolute w-64 h-64 border border-cyan-500/20 rounded-full animate-pulse" />
+                        <div className="absolute w-56 h-56 md:w-64 md:h-64 rounded-full border border-cyan-300/45 bg-cyan-400/5 shadow-[0_0_55px_rgba(34,211,238,0.18)] animate-pulse" />
                          <p className="text-2xl font-heading text-white text-center font-bold leading-relaxed drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
                             極致清晰<br/>全域視野
                         </p>
@@ -275,7 +226,7 @@ const ProblemSection = () => {
                             <Check size={16} /> 擬視曲面融合
                         </div>
                         <p className="text-slate-300 text-sm">
-                            專利曲面技術，完美整合視力矯正。從中心到邊緣，視野依然銳利。
+                            完美整合度數鏡片與光波導鏡片。從中心到邊緣，視野依然銳利。
                         </p>
                     </div>
                 </div>
@@ -307,7 +258,7 @@ const InnovationSection = () => {
             曲面融合技術
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            我們重新定義了光的路徑。將光波導層與客製化矯正鏡片，在物理與光學層面上完美結合。
+            我們重新定義了光的路徑。將光波導鏡片與客製化度數鏡片，在物理與光學層面上完美結合。
           </p>
         </div>
 
@@ -381,55 +332,6 @@ const LifestyleSection = () => {
                 </h2>
                 <p className="text-slate-500 max-w-md">我們相信最好的科技是不被察覺的。全天候舒適配戴，就像您原本的眼鏡一樣自然。</p>
             </div>
-            <button className="hidden md:flex items-center gap-2 text-slate-900 font-bold border-b-2 border-slate-900 pb-1 hover:text-cyan-600 hover:border-cyan-600 transition-all">
-                查看更多故事 <ArrowRight size={18} />
-            </button>
-        </div>
-
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
-            {/* Card 1: Work - Large */}
-            <div className="md:col-span-2 relative group overflow-hidden rounded-3xl bg-slate-100">
-                 {/* Placeholder for Image */}
-                 <div className="absolute inset-0 bg-gradient-to-b from-slate-200 to-slate-300" />
-                 {/* Decorative elements representing code/work */}
-                 <div className="absolute top-10 right-10 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl" />
-                 <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/60 to-transparent">
-                     <span className="text-cyan-300 text-xs font-mono uppercase tracking-widest mb-2 block">Workflow</span>
-                     <h3 className="text-white text-2xl font-bold">專注工作，多屏協作不疲勞</h3>
-                 </div>
-                 {/* Visual Hint of Glasses POV */}
-                 <div className="absolute inset-0 border-[20px] border-black/5 rounded-[3rem] pointer-events-none" />
-            </div>
-
-            <div className="md:col-span-1 flex flex-col gap-6">
-                 {/* Card 2: Outdoors */}
-                 <div className="flex-1 relative group overflow-hidden rounded-3xl bg-stone-200">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-stone-300 to-stone-100" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                         <div className="w-16 h-16 rounded-full border border-slate-900/20 flex items-center justify-center">
-                            <span className="text-slate-900/40 text-xs">Navi</span>
-                         </div>
-                    </div>
-                    <div className="absolute bottom-6 left-6">
-                        <h3 className="text-slate-800 font-bold">戶外導航</h3>
-                    </div>
-                 </div>
-
-                 {/* Card 3: Relax */}
-                 <div className="flex-1 relative group overflow-hidden rounded-3xl bg-slate-800">
-                     <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900" />
-                     <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                        {/* Abstract movie icon */}
-                        <div className="w-20 h-12 border-2 border-white rounded-lg flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-full mx-1" />
-                        </div>
-                     </div>
-                     <div className="absolute bottom-6 left-6">
-                        <h3 className="text-white font-bold">沉浸娛樂</h3>
-                     </div>
-                 </div>
-            </div>
         </div>
       </div>
     </section>
@@ -440,7 +342,7 @@ const SpecsSection = () => {
   return (
     <section id="specs" className="py-24 bg-slate-900 text-white border-t border-slate-800">
       <div className="container mx-auto px-6 max-w-5xl">
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="max-w-2xl mx-auto">
             <div>
                 <h2 className="text-3xl font-heading font-bold mb-6 flex items-center gap-3">
                     <Shield className="text-cyan-400" /> 技術規格
@@ -465,6 +367,7 @@ const SpecsSection = () => {
                 </div>
             </div>
 
+            {false && (
             <div className="bg-slate-800/50 rounded-3xl p-8 border border-slate-700 flex flex-col justify-center relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px]" />
                 
@@ -491,6 +394,7 @@ const SpecsSection = () => {
                     </div>
                 </div>
             </div>
+            )}
         </div>
       </div>
     </section>
@@ -508,29 +412,6 @@ const Footer = () => {
         <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8 holographic-text">
             準備好改變您的視界了嗎？
         </h2>
-        <p className="text-slate-400 text-lg mb-12 max-w-xl mx-auto">
-            加入我們的先行者計畫，或是為您的企業尋求客製化解決方案。
-        </p>
-
-        <div className="flex flex-col sm:flex-row justify-center gap-6 mb-24">
-            <button className="px-8 py-4 rounded-full bg-cyan-500 text-slate-900 font-bold hover:bg-cyan-400 hover:scale-105 transition-all shadow-[0_0_20px_rgba(34,211,238,0.4)]">
-                成為合作夥伴
-            </button>
-            <button className="px-8 py-4 rounded-full border border-slate-600 hover:border-white hover:bg-white/10 transition-all">
-                訂閱發售通知
-            </button>
-        </div>
-
-        <div className="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
-            <div className="mb-4 md:mb-0">
-                &copy; 2024 Simulacra Technologies 擬視科技股份有限公司. All rights reserved.
-            </div>
-            <div className="flex gap-8">
-                <a href="#" className="hover:text-white transition-colors">Privacy</a>
-                <a href="#" className="hover:text-white transition-colors">Terms</a>
-                <a href="#" className="hover:text-white transition-colors">Contact</a>
-            </div>
-        </div>
       </div>
     </footer>
   );
