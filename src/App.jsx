@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
-import { ChevronRight, Eye, Layers, Zap, ArrowRight, Menu, X, Check, Activity, Shield } from 'lucide-react';
+import { ChevronRight, Eye, Layers, Zap, ArrowRight, X, Check, Activity, Shield } from 'lucide-react';
 
 // --- Global Styles & Fonts ---
 const GlobalStyles = () => (
@@ -63,7 +63,6 @@ const GlobalStyles = () => (
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -84,30 +83,6 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Desktop Menu */}
-        <div className={`hidden md:flex items-center gap-8 ${isScrolled ? 'text-gray-300' : 'text-slate-600'}`}>
-          <a href="#technology" className="hover:text-cyan-400 transition-colors">技術原理</a>
-          <a href="#lifestyle" className="hover:text-cyan-400 transition-colors">使用情境</a>
-          <a href="#specs" className="hover:text-cyan-400 transition-colors">專業數據</a>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button className="md:hidden z-50 text-cyan-500" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* Mobile Menu Overlay */}
-        {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="absolute top-0 left-0 w-full h-screen bg-slate-900 flex flex-col items-center justify-center gap-8 md:hidden"
-          >
-            <a href="#technology" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl text-white font-heading">技術原理</a>
-            <a href="#lifestyle" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl text-white font-heading">使用情境</a>
-            <a href="#specs" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl text-white font-heading">專業數據</a>
-          </motion.div>
-        )}
       </div>
     </nav>
   );
@@ -404,6 +379,9 @@ const Footer = () => {
         <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8 holographic-text">
             準備好改變您的視界了嗎？
         </h2>
+        <p className="text-slate-500 text-sm">
+            &copy; 2025 擬視科技股份有限公司All rights reserved.
+        </p>
       </div>
     </footer>
   );
