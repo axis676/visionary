@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import { ChevronRight, Eye, Layers, Zap, ArrowRight, X, Check, Activity, Shield, Mail } from 'lucide-react';
+import heroLensDiagram from './assets/hero-lens-diagram.png';
 
 // --- Global Styles & Fonts ---
 const GlobalStyles = () => (
@@ -110,7 +111,7 @@ const HeroSection = () => {
         <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-blue-200/30 to-cyan-100/30 blur-[80px]" />
       </div>
 
-      <div className="container mx-auto px-6 pt-24 md:pt-0 relative z-10 grid gap-12 items-center">
+      <div className="container mx-auto px-6 pt-24 md:pt-0 relative z-10 grid gap-12 md:grid-cols-[minmax(0,1fr)_minmax(360px,520px)] items-center">
         {/* Text Content */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -129,6 +130,19 @@ const HeroSection = () => {
             首創度數鏡片與平面光波導鏡片一體化技術。<br />
             讓每一雙獨特的眼睛，都能舒適地探索虛實世界。
           </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          className="relative mx-auto md:-ml-8 lg:-ml-16 w-full max-w-[520px]"
+        >
+          <img
+            src={heroLensDiagram}
+            alt="度數鏡片與平面光波導鏡片一體化示意圖"
+            className="w-full h-auto object-contain"
+          />
         </motion.div>
 
       </div>
@@ -346,10 +360,10 @@ const SpecsSection = () => {
                 
                 <div className="space-y-6">
                     {[
-                        { label: "近視矯正範圍", value: "0.0D to -10.0D(S)" },
+                        { label: "近視度數範圍", value: "0.0D to -10.0D" },
                         { label: "遠視度數範圍", value: "0.0D to +4.0D" },
-                        { label: "散光矯正範圍", value: "0.0D to -6.0D(C)" },
-                        { label: "散光軸度degree", value: "0 to 180" },
+                        { label: "散光度數範圍", value: "0.0D to -6.0D" },
+                        { label: "散光軸度", value: "0 to 180 degree" },
                         { label: "鏡片折射率", value: "1.50 to 1.74" },
                         { label: "光學貼合方式", value: "光學貼合/空氣間隙" },
                     ].map((spec, i) => (
