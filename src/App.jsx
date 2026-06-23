@@ -126,7 +126,7 @@ const HeroSection = () => {
             <span>無需犧牲視力。</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-lg leading-relaxed">
-            首創度數鏡片與平面光波導一體化技術。<br />
+            首創度數鏡片與平面光波導鏡片一體化技術。<br />
             讓每一雙獨特的眼睛，都能舒適地探索虛實世界。
           </p>
         </motion.div>
@@ -159,8 +159,9 @@ const ProblemSection = () => {
           className="text-center mb-20"
         >
           <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6">為什麼 AR 眼鏡總是難以適應？</h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            每個使用者的眼睛都是獨一無二的，而主流AR眼鏡無法客製化度數鏡片給予使用者配戴。這種「幾何衝突」，讓屈光不正族群被拒於門外。
+          <p className="text-slate-400 text-lg max-w-4xl mx-auto">
+            <span className="block md:whitespace-nowrap">每個使用者的眼睛都是獨一無二的，而主流AR眼鏡無法客製化度數鏡片給予使用者配戴。</span>
+            <span className="block">這種「幾何衝突」，讓屈光不正族群被拒於門外。</span>
           </p>
         </motion.div>
 
@@ -328,7 +329,10 @@ const SpecsSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold font-heading text-white mb-4">
                 隱形於生活，<br/>顯形於視界。
             </h2>
-            <p className="text-slate-400 max-w-md">我們相信最好的科技是不被察覺的。全天候舒適配戴，就像您原本的眼鏡一樣自然。</p>
+            <p className="text-slate-400 max-w-md">
+                <span className="block">我們相信最好的科技是不被察覺的。</span>
+                <span className="block">全天候舒適配戴，就像原本的眼鏡一樣自然。</span>
+            </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
@@ -342,9 +346,12 @@ const SpecsSection = () => {
                 
                 <div className="space-y-6">
                     {[
-                        { label: "近視矯正範圍", value: "0.00D to -10.00D" },
-                        { label: "散光矯正範圍", value: "0.00D to -6.00D" },
-                        { label: "鏡片透光率", value: "> 95%" },
+                        { label: "近視矯正範圍", value: "0.0D to -10.0D(S)" },
+                        { label: "遠視度數範圍", value: "0.0D to +4.0D" },
+                        { label: "散光矯正範圍", value: "0.0D to -6.0D(C)" },
+                        { label: "散光軸度degree", value: "0 to 180" },
+                        { label: "鏡片折射率", value: "1.50 to 1.74" },
+                        { label: "光學貼合方式", value: "光學貼合/空氣間隙" },
                     ].map((spec, i) => (
                         <div key={i} className="flex justify-between items-center py-4 border-b border-slate-800 hover:border-cyan-500/50 transition-colors">
                             <span className="text-slate-400">{spec.label}</span>
