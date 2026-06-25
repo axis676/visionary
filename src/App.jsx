@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import { motion as Motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ChevronRight, Eye, Layers, Zap, ArrowRight, X, Check, Activity, Shield, Mail } from 'lucide-react';
 import heroLensDiagram from './assets/hero-lens-diagram.png';
 
@@ -78,7 +78,7 @@ const Navbar = () => {
         <div className="flex items-center gap-3 z-50">
           <img 
             src={`${import.meta.env.BASE_URL}logo.svg`}
-            alt="Simulacra Logo" 
+            alt="擬視科技 Simulacra Technology Logo"
             className={`h-10 md:h-16 lg:h-20 w-auto transition-all duration-300 ${!isScrolled ? 'brightness-0' : ''}`}
             style={{ filter: !isScrolled ? 'brightness(0) saturate(100%)' : 'none' }}
           />
@@ -113,7 +113,7 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-6 pt-24 md:pt-0 relative z-10 grid gap-12 md:grid-cols-[minmax(0,1fr)_minmax(360px,520px)] items-center">
         {/* Text Content */}
-        <motion.div 
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -130,9 +130,9 @@ const HeroSection = () => {
             首創度數鏡片與平面光波導鏡片一體化技術。<br />
             讓每一雙獨特的眼睛，都能舒適地探索虛實世界。
           </p>
-        </motion.div>
+        </Motion.div>
 
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
@@ -143,19 +143,19 @@ const HeroSection = () => {
             alt="度數鏡片與平面光波導鏡片一體化示意圖"
             className="w-full h-auto object-contain"
           />
-        </motion.div>
+        </Motion.div>
 
       </div>
       
       {/* Scroll Indicator */}
-      <motion.div 
+      <Motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-400 flex flex-col items-center gap-2"
       >
         <span className="text-xs tracking-widest uppercase">Scroll</span>
         <div className="w-[1px] h-8 bg-slate-300" />
-      </motion.div>
+      </Motion.div>
     </section>
   );
 };
@@ -167,7 +167,7 @@ const ProblemSection = () => {
   return (
     <section className="py-24 bg-slate-900 text-white relative overflow-hidden" ref={ref}>
       <div className="container mx-auto px-6">
-        <motion.div 
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           className="text-center mb-20"
@@ -177,7 +177,7 @@ const ProblemSection = () => {
             <span className="block md:whitespace-nowrap">每個使用者的眼睛都是獨一無二的，而主流AR眼鏡無法客製化度數鏡片給予使用者配戴。</span>
             <span className="block">這種「幾何衝突」，讓屈光不正族群被拒於門外。</span>
           </p>
-        </motion.div>
+        </Motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
             {/* The Problem: Flat & Blurry */}
@@ -264,38 +264,38 @@ const InnovationSection = () => {
         <div className="relative h-[600px] w-full max-w-4xl mx-auto flex items-center justify-center">
            {/* Vision Target */}
            <div className="absolute z-0 flex items-center justify-center">
-              <motion.div
+              <Motion.div
                 style={{ opacity: blurredEyeOpacity }}
                 className="absolute flex h-56 w-56 md:h-72 md:w-72 items-center justify-center rounded-full border border-slate-300/50 bg-slate-200/30 blur-[6px]"
               >
                 <Eye size={118} className="text-slate-400/80" strokeWidth={1.5} />
-              </motion.div>
-              <motion.div
+              </Motion.div>
+              <Motion.div
                 style={{ opacity: clearEyeOpacity, scale: clearEyeScale }}
                 className="absolute flex h-56 w-56 md:h-72 md:w-72 items-center justify-center rounded-full border border-cyan-300/60 bg-white/30 shadow-[0_0_45px_rgba(34,211,238,0.18)]"
               >
                 <Eye size={118} className="text-slate-800 drop-shadow-[0_0_10px_rgba(34,211,238,0.35)]" strokeWidth={1.8} />
-              </motion.div>
+              </Motion.div>
            </div>
 
            {/* Layer 1: Prescription Lens (Bottom) */}
-           <motion.div 
+           <Motion.div
              style={{ y: y1, opacity }}
              className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-[30%] border-4 border-slate-300 bg-white/35 flex items-center justify-center z-10"
            >
               <span className="text-slate-400 font-heading text-xl translate-y-20">視力矯正層</span>
-           </motion.div>
+           </Motion.div>
 
            {/* Layer 2: Waveguide (Top) */}
-           <motion.div 
+           <Motion.div
              style={{ y: y2, opacity }}
              className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-[30%] border-4 border-cyan-400/50 bg-cyan-50/20 flex items-center justify-center z-20 shadow-lg shadow-cyan-200/50"
            >
               <span className="text-cyan-600 font-heading text-xl -translate-y-20">AR 光波導層</span>
-           </motion.div>
+           </Motion.div>
 
            {/* Fusion Effect (Center) */}
-           <motion.div
+           <Motion.div
              style={{ scale, opacity }}
              className="absolute z-30 w-32 h-32 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full blur-[50px] mix-blend-multiply"
            />
@@ -314,7 +314,7 @@ const InnovationSection = () => {
                 { icon: <Layers className="text-purple-500" />, title: "Curved 全曲面", desc: "突破平面波導限制，實現符合眼球工學的自然包覆感。" },
                 { icon: <Zap className="text-yellow-500" />, title: "Integrated 一體化", desc: "告別「眼鏡夾眼鏡」的笨重感，極致輕薄，宛如一般眼鏡。" }
             ].map((item, idx) => (
-                <motion.div 
+                <Motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -327,7 +327,7 @@ const InnovationSection = () => {
                     </div>
                     <h3 className="text-xl font-bold mb-3 text-slate-900">{item.title}</h3>
                     <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
-                </motion.div>
+                </Motion.div>
             ))}
         </div>
       </div>
@@ -374,35 +374,6 @@ const SpecsSection = () => {
                     ))}
                 </div>
             </div>
-
-            {false && (
-            <div className="bg-slate-800/50 rounded-3xl p-8 border border-slate-700 flex flex-col justify-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px]" />
-                
-                <h3 className="text-xl font-bold mb-6 z-10">合作夥伴 & 專利</h3>
-                
-                <div className="grid grid-cols-2 gap-4 z-10">
-                    <div className="bg-slate-900/80 p-4 rounded-xl text-center border border-slate-700">
-                        <div className="text-3xl font-bold text-white mb-1">12+</div>
-                        <div className="text-xs text-slate-400">核心光學專利</div>
-                    </div>
-                    <div className="bg-slate-900/80 p-4 rounded-xl text-center border border-slate-700">
-                        <div className="text-3xl font-bold text-white mb-1">ISO</div>
-                        <div className="text-xs text-slate-400">13485 醫療認證</div>
-                    </div>
-                </div>
-
-                <div className="mt-8 pt-8 border-t border-slate-700 z-10">
-                    <p className="text-sm text-slate-400 mb-4">Trusted By:</p>
-                    <div className="flex gap-4 opacity-50 grayscale hover:grayscale-0 transition-all">
-                        {/* Mock Logos */}
-                        <div className="h-8 w-20 bg-white/20 rounded"></div>
-                        <div className="h-8 w-20 bg-white/20 rounded"></div>
-                        <div className="h-8 w-20 bg-white/20 rounded"></div>
-                    </div>
-                </div>
-            </div>
-            )}
         </div>
       </div>
     </section>
@@ -420,7 +391,7 @@ const Footer = () => {
             準備好改變您的視界了嗎？
         </h2>
         <p className="text-slate-500 text-sm">
-            &copy; 2025 擬視科技股份有限公司All rights reserved.
+            &copy; 2026 擬視科技股份有限公司. All rights reserved.
         </p>
       </div>
     </footer>
@@ -432,10 +403,12 @@ const App = () => {
     <div className="antialiased selection:bg-cyan-500/30">
       <GlobalStyles />
       <Navbar />
-      <HeroSection />
-      <ProblemSection />
-      <InnovationSection />
-      <SpecsSection />
+      <main>
+        <HeroSection />
+        <ProblemSection />
+        <InnovationSection />
+        <SpecsSection />
+      </main>
       <Footer />
     </div>
   );
